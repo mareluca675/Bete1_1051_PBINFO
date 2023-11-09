@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main ()
+{
+    ifstream fin("bete1.in");
+    ofstream fout("bete1.out");
+
+    int n, i = 1, j = 1, a, b, maxa = 0, mina = 10001, maxb = 0, nrmaxa = 0, nrmaxb = 0, l, k;
+    
+    fin >> n;
+    
+    while(i <= n)
+    {
+        fin >> a;
+        
+        if(a == maxa)
+        {
+            nrmaxa ++;
+        }
+        else if(maxa < a)
+        {
+            maxa = a;
+            nrmaxa = 1;
+        }
+        
+        if(mina > a)
+        {
+            mina = a;
+        }
+        
+        i ++;
+    }
+    
+    while(j <= n)
+    {
+        fin >> b;
+        
+        if(b == maxb)
+        {
+            nrmaxb ++;
+        }
+        else if(maxb < b)
+        {
+            maxb = b;
+            nrmaxb = 1;
+        }
+        
+        j ++;
+    }
+    
+    l = maxb + mina;
+    k = maxa + maxb;
+    
+    fout << l << '\n';
+    fout << k << '\n';
+    
+    if(nrmaxa <= nrmaxb)
+    {
+        fout << nrmaxa << '\n';
+    }
+    else
+    {
+        fout << nrmaxb << '\n';
+    }
+    
+  return 0;
+}
